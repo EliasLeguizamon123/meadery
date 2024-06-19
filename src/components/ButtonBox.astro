@@ -1,3 +1,24 @@
 ---
-const { buttons } = Astro.props;
+import type { Button } from '../interfaces/Button'
+import Trending from '../assets/trending.astro'
+
+interface Props {
+    buttons: Button[]
+}
+const { buttons }  = Astro.props;
 ---
+
+<div class="flex flex-row space-x-4 w-full justify-center p-4">
+    {buttons.map((button) => (
+        <a 
+            class={`items-center cursor-pointer h-12 justify-center rounded-full border-primary duration-200  inline-flex px-6 py-3 text-center w-full lg:w-auto border ${button.important ? 'bg-primary text-background hover:bg-background hover:text-white' : 'hover:bg-primary hover:text-background'}`}
+            href={button.href}
+            target="_blank"
+        >
+            {button.name}
+           { button.important && (
+                <Trending />
+            )}
+        </a>
+    ))}
+</div>

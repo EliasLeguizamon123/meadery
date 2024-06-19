@@ -1,6 +1,26 @@
 ---
 import Layout from '../../layouts/Layout.astro'
 import Title from '../../components/Title.astro'
+import ButtonBox from '../../components/ButtonBox.astro'
+import type { Button } from '../../interfaces/Button'
+
+const buttons: Button[] = [
+    {
+        name: 'Instagram',
+        href: 'https://www.instagram.com/hidromielbajocero/',
+        important: false
+    },
+    {
+        name: 'Facebook',
+        href: 'https://www.facebook.com/hidromielbajocero/',
+        important: false
+    },
+    {
+        name: 'Mercado Libre',
+        href: 'https://www.mercadolibre.com/hidromielbajocero/',
+        important: true
+    }
+]
 ---
 
 <Layout title='Products'>
@@ -10,5 +30,6 @@ import Title from '../../components/Title.astro'
         <p class="mt-8 text-white">
             Podes encontrarnos en los siguientes medios:
         </p>
+        <ButtonBox buttons={buttons}/>
     </main>
 </Layout>
